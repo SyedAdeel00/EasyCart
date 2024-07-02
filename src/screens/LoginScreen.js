@@ -14,10 +14,10 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     // Log user input for debugging purposes
-    console.log('Username:', typeof(username));
-    console.log('Password:', typeof(password));
-    console.log('Password:', password);
-    console.log('Username:', username);
+    // console.log('Username:', typeof(username));
+    // console.log('Password:', typeof(password));
+    // console.log('Password:', password);
+    // console.log('Username:', username);
 
     // Make sure to use String() to convert values to strings
     fetch('https://fakestoreapi.com/auth/login', {
@@ -52,7 +52,7 @@ const LoginScreen = () => {
         navigation.navigate('Home');
       })
       .catch((error) => {
-        console.error('Login error:', error.message);
+        // console.error('Login error:', error.message);
         Alert.alert('Error', error.message);
       });
   };

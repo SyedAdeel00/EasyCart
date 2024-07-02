@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet, Alert } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions/cartActions';
@@ -19,10 +19,16 @@ const MyCard = ({ product }) => {
     ]);
   };
 
+  const handleShowDetails = () => {
+    navigation.navigate('ProductDetailScreen', { product });
+  };
+
   return (
     <View style={styles.card}>
       <Image source={{ uri: product.image }} style={styles.image} />
+      <TouchableOpacity onPress={handleShowDetails}>
       <Text style={styles.title}>{product.title}</Text>
+      </TouchableOpacity>
       <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Text style={styles.price}>{`$${product.price.toFixed(2)}`}</Text>
         <View style={{ marginLeft: 10 }}>
@@ -61,6 +67,11 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 17,
     color: 'limegreen',
+  },
+  showDetailsText: {
+    marginTop: 5,
+    color: 'antiquewhite',
+    textDecorationLine: 'underline',
   },
 });
 

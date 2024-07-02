@@ -15,7 +15,10 @@ const HomeScreen = () => {
     fetch('https://fakestoreapi.com/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
-      .catch((error) => console.error('Error fetching data:', error));
+      .catch((error) => {
+        // console.error('Error fetching data:', error.message);
+        Alert.alert('Error', error.message);
+      });
   }, []);
 
   return (
